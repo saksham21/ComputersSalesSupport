@@ -1,0 +1,73 @@
+div.normal_view {
+	padding-top: 2%;
+	width:100%;
+}
+body {
+  padding-top: 50px;
+  padding-bottom: 30px;
+  width:100%;
+}
+.table-buttons {
+	margin-bottom: 10px;	
+}
+
+.table.table-striped>tbody>tr.selected>td, .table.table-striped>tbody>tr.selected>th {
+	background-color:#08C;
+	color: white;
+}
+
+.select-wrapper {
+	display: table;
+}
+
+.input-group-addon.ok {
+	background-color: #4cae4c;
+	border-color: #4cae4c;
+	color: #ffffff;
+}
+
+.custom-new-input {
+	border-radius: 4px 0px 0px 4px !important;
+}
+
+.add-more-authors {
+	position: absolute;
+	right: 0;
+	float: right;
+	font-size: 10px;
+	margin-right: 15px;
+	cursor: pointer;
+}
+
+.select-box-inline {
+	display: inline;
+	width: auto;
+	margin-bottom: 8px;
+}
+
+.author-div {
+	margin-bottom: 4px;
+}
+
+.select2-container {
+	width: 319px !important;
+}
+
+.add-new-anchor {
+	cursor: pointer;
+}
+
+.book-crousel-img {
+	margin-left: 40%;
+}
+
+.book-carousel{
+	margin: 0 22%;
+	background: lightgray;
+}
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    height: 650px;
+    margin: auto;
+}

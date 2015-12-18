@@ -1,0 +1,88 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:aop="http://www.springframework.org/schema/aop"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mvc="http://www.springframework.org/schema/mvc"
+   xmlns:task="http://www.springframework.org/schema/task"
+   xmlns:jee="http://www.springframework.org/schema/jee"
+   xmlns:lang="http://www.springframework.org/schema/lang"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xmlns:tx="http://www.springframework.org/schema/tx"
+   xmlns:util="http://www.springframework.org/schema/util"
+   xsi:schemaLocation="
+       http://www.springframework.org/schema/beans    
+       http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+       http://www.springframework.org/schema/mvc
+	   http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.1.xsd
+       http://www.springframework.org/schema/task 
+       http://www.springframework.org/schema/task/spring-task-3.2.xsd
+       http://www.springframework.org/schema/jee
+       http://www.springframework.org/schema/jee/spring-jee.xsd
+       http://www.springframework.org/schema/lang
+       http://www.springframework.org/schema/lang/spring-lang.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+ 
+   <context:component-scan base-package="com.worksap.stm_s173.controller" />
+   <context:annotation-config />
+   <mvc:annotation-driven />
+
+ 	
+ 	
+   <bean
+     class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+     <property name="prefix">
+       <value>/WEB-INF/pages/</value>
+     </property>
+     <property name="suffix">
+       <value>.jsp</value>
+     </property>
+   </bean>
+   
+   <mvc:resources mapping="/resources/**" location="/resources/" />
+   
+   <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**/*"/>
+            <bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+                <property name="cacheSeconds" value="0"/>
+                <property name="useExpiresHeader" value="true"/>
+                <property name="useCacheControlHeader" value="true"/>
+                <property name="useCacheControlNoStore" value="true"/>
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    
+   <bean id="EmployeeService" class="com.worksap.stm_s173.service.impl.EmployeeServiceImpl" />
+   <bean id="OfficeService" class="com.worksap.stm_s173.service.impl.OfficeServiceImpl" />
+   <bean id="ClientService" class="com.worksap.stm_s173.service.impl.ClientServiceImpl" />
+   <bean id="TaskService" class="com.worksap.stm_s173.service.impl.TaskServiceImpl" />
+   <bean id="ProductService" class="com.worksap.stm_s173.service.impl.ProductServiceImpl" />
+   <bean id="SalesService" class="com.worksap.stm_s173.service.impl.SalesServiceImpl" />
+   <bean id="EmployeeDao" class="com.worksap.stm_s173.dao.impl.EmployeeDaoImpl" >
+   		<property name="dataSource" ref="dataSource" />
+   </bean>
+   <bean id="OfficeDao" class="com.worksap.stm_s173.dao.impl.OfficeDaoImpl">
+   		<property name="dataSource" ref="dataSource" />
+   	</bean>
+   	<bean id="ClientDao" class="com.worksap.stm_s173.dao.impl.ClientDaoImpl" >
+   		<property name="dataSource" ref="dataSource" />
+   	</bean>
+   	<bean id="TaskDao" class="com.worksap.stm_s173.dao.impl.TaskDaoImpl" >
+   		<property name="dataSource" ref="dataSource" />
+   </bean>
+   <bean id="ProductDao" class="com.worksap.stm_s173.dao.impl.ProductDaoImpl" >
+   		<property name="dataSource" ref="dataSource" />
+   </bean>
+     <bean id="SalesDao" class="com.worksap.stm_s173.dao.impl.SalesDaoImpl" >
+   		<property name="dataSource" ref="dataSource" />
+   </bean>
+   <bean id="TimelineDao" class="com.worksap.stm_s173.dao.impl.TimelineDaoImpl" >
+   		<property name="dataSource" ref="dataSource" />
+   </bean>
+ 
+</beans>
